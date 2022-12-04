@@ -1,0 +1,23 @@
+{% extends 'bootstrap/base.html' %}
+
+
+{% block title %}{% endblock %}
+
+
+{% block content %}
+<h1>{{user.first_name}} {{user.last_name}}</h1>
+<ul>
+    <li>{{user.username}}</li>
+    <li>{{user.email}}</li>
+</ul>
+
+{% for f in feedback %}
+    <h2>{{f.title}}</h2>
+    <p>{{f.content}}</p>
+    <a href="/feedback/{{f.id}}/delete">delete</a>
+{% endfor %}
+<a href="/users/{{user.id}}/feedback"><button>Add Feedback</button></a>
+<a href="/logout"><button>Log Out</button></a>
+<a href="/users/{{user.id}}/delete"><button>Delete Your Account</button></a>
+
+{% endblock %}
